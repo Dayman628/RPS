@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>RPS (Rock Paper Scissors)</title>
+  </head>
+  <body>
+
+    <h1>ROCK. PAPER. SCISSORS.</h1>
+
+    <script>  
+    
+    
+    // declared variables
+    var wins = 0;
+    var losses = 0;
+    var ties = 0;
+    var handArray = ["r", "p", "s"];
+    var continueGame = true;
+
+    while (continueGame == true) {
+        // step one, accept user input  
+        var playerInput = prompt ("What would you like to play? R - Rock, P - Paper, S - Scissors").toLowerCase();
+
+        // step two, creat computer hand
+        var computerSelect = Math.floor(Math.random() * handArray.length);
+        var computerHand = handArray[computerSelect];
+        
+        // step three, if/else statements to determine a winner
+        if (playerInput === computerHand) {
+            alert("Computer has chosen " + computerHand);
+            alert("You have tied");
+            ties++;
+        }
+
+        if (playerInput === "r") {
+            if (computerHand === "p") {
+                alert("PAPER!");
+                alert("You lost");
+                losses++;
+            }
+            if (computerHand === "s") {
+                alert("SCISSORS!");
+                alert("You win!");
+                wins++;
+            }
+        }
+
+
+        if (playerInput === "p") {
+            if (computerHand === "s") {
+                alert("SCISSORS!");
+                alert("You lost");
+                losses++;
+            }
+            if (computerHand === "r") {
+                alert("ROCK!");
+                alert("You win!");
+                wins++;
+            }
+        }
+
+
+        if (playerInput === "s") {
+            if (computerHand === "r") {
+                alert("ROCK!");
+                alert("You lost");
+                losses++;
+            }
+            if (computerHand === "p") {
+                alert("PAPER!");
+                alert("You win!");
+                wins++;
+            }
+        }
+    
+
+    continueGame = confirm("Would you like to continue?\nWins = " + wins + ". Losses = " + losses + ". Ties = " + ties + ".");
+    }
+
+    alert("Until next time. GG!");
+
+
+    
+    </script>
+    
+  </body>
+</html>
